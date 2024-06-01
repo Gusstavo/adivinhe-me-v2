@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import mockQuestions from "@/lib/mockQuestions"
+import mockQuestions from "@/lib/mock/questions"
 import TemplateQuestion from "@/components/self/template-question"
-import EndQuiz from "@/components/self/end-quizz"
+import EndQuiz from "@/components/self/end-quiz"
+import Title from "@/components/self/title"
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
@@ -12,6 +13,7 @@ export default function Component() {
   const [score, setScore] = useState(0)
 
   const questions = mockQuestions
+  const dailyTheme = "Geografia"
 
   const shareObj = {
     title: "Adivinhe Me - Quiz do Dia",
@@ -35,6 +37,7 @@ export default function Component() {
       <main className="flex-1 bg-secondary">
         <section className="py-12 px-6 md:px-12 lg:px-24">
           <div className="max-w-3xl mx-auto">
+            <Title>{`Quiz do Dia - Tema ${dailyTheme}`}</Title>
             <TemplateQuestion
               currentQuestion={currentQuestion}
               score={score}
