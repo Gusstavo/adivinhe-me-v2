@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Header from "@/components/ui/header"
 import mockQuestions from "@/lib/mockQuestions"
 import TemplateQuestion from "@/components/self/template-question"
 import EndQuiz from "@/components/self/end-quizz"
@@ -32,9 +31,8 @@ export default function Component() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#FFF9C4] to-secondary">
-      <Header />
-      <main className="flex-1 bg-gradient-to-b from-secondary to-[#FFF9C4]">
+    <div className="flex flex-col min-h-screen ">
+      <main className="flex-1 bg-secondary">
         <section className="py-12 px-6 md:px-12 lg:px-24">
           <div className="max-w-3xl mx-auto">
             <TemplateQuestion

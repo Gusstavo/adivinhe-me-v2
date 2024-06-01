@@ -27,12 +27,20 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--siteone))",
+          DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--sitetwo))",
+          DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+        },
+        success: {
+          DEFAULT: "#4CAF50",
+          foreground: "#43A047",
+        },
+        warning: {
+          DEFAULT: "#FFA800",
+          foreground: "#D68A00",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",

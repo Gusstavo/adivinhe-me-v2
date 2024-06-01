@@ -4,7 +4,7 @@ import { MenuIcon } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
-const Header = () => {
+const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     const options = [
@@ -14,7 +14,7 @@ const Header = () => {
     ]
 
     return (
-        <header className="bg-[#FFA000] text-white py-4 px-6">
+        <header className="bg-primary text-white py-4 px-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <button className="mr-4 focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
@@ -24,11 +24,11 @@ const Header = () => {
                 ADIVINHE ME
             </Link>
           </div>
-          <nav className={`absolute top-16 left-0 w-full bg-[#FFA000] z-10 ${isOpen ? "block" : "hidden"}`}>
+          <nav className={`absolute top-16 left-0 w-full bg-primary z-10 ${isOpen ? "block" : "hidden"}`}>
             <ul className="py-4">
                 {options.map((option, index) => (
                     <li key={index}>
-                    <Link href={option.href} className="block px-6 py-2 hover:bg-[#FF8F00] focus:outline-none" prefetch={false}>
+                    <Link href={option.href} className="block text:secondary px-6 py-2 hover:text-secondary-foreground hover:bg-primary-foreground focus:outline-none" prefetch={false}>
                         {option.label}
                     </Link>
                     </li>
@@ -40,4 +40,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Navbar
