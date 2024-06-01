@@ -37,11 +37,9 @@ export default function Component() {
       <Title>{`Quiz do Dia - Tema ${dailyTheme}`}</Title>
       <TemplateQuestion
         currentQuestion={currentQuestion}
-        score={score}
         question={questions[currentQuestion]}
         totalQuestions={questions.length}
         handleAnswerClick={handleAnswerClick}
-        handleShareResults={handleShareResults}
       />
       {currentQuestion === questions.length - 1 && (
         <EndQuiz score={score} questions={questions.length} />

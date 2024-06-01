@@ -6,8 +6,6 @@ interface TemplateQuestionProps {
   question: Question;
   currentQuestion: number;
   handleAnswerClick: (index: number) => void;
-  score: number;
-  handleShareResults: () => void;
   totalQuestions: number;
 }
 
@@ -15,15 +13,13 @@ const TemplateQuestion = ({
   question,
   currentQuestion,
   handleAnswerClick,
-  score,
-  handleShareResults,
   totalQuestions,
 }: TemplateQuestionProps) => {
   if (currentQuestion === totalQuestions - 1) {
     return (
       <BorderedImage
         src={question.image}
-        width="800"
+        width="896"
         height="400"
         alt="Quiz Image"
         className="rounded-lg mb-6 border-2"
@@ -35,7 +31,7 @@ const TemplateQuestion = ({
     <>
       <BorderedImage
         src={question.image}
-        width="800"
+        width="896"
         height="400"
         alt="Quiz Image"
         className="rounded-lg mb-6 border-2 border-primary"

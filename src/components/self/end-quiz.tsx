@@ -7,7 +7,19 @@ interface EndQuizProps {
   questions: number;
 }
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 const EndQuiz = ({ score, questions }: EndQuizProps) => {
+  const shareObj = {
+    title: "Adivinhe Me - Quiz do Dia",
+    text: `Eu acertei ${score} de ${questions} questões!`,
+    url: `${BASE_URL}?score=${score}`,
+  };
+
+  const handleShareResults = () => {
+    navigator.share(shareObj);
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md p-6 text-center">
       <h3 className="text-2xl font-bold mb-4">
@@ -22,7 +34,7 @@ const EndQuiz = ({ score, questions }: EndQuizProps) => {
           Ver outros quizzes
         </Link>
         <Button
-          onClick={() => {}}
+          onClick={handleShareResults}
           className=" text-white rounded-lg py-3 px-6  focus:outline-none"
           size="lg"
           variant="success"
