@@ -5,21 +5,21 @@ import mockQuestions from "@/lib/mock/questions";
 import TemplateQuestion from "@/components/self/template-question";
 import EndQuiz from "@/components/self/end-quiz";
 import Title from "@/components/self/title";
+import { Quiz } from "@/interfaces/quiz";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-export default function Component() {
+interface TemplateQuizProps {
+  title: string
+  quiz: Quiz
+}
+
+const TemplateQuiz = ({ title, quiz }: TemplateQuizProps) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
 
-  const questions = mockQuestions;
-  const dailyTheme = "Geografia";
-
-  const shareObj = {
-    title: "Adivinhe Me - Quiz do Dia",
-    text: `Eu acertei ${score} de ${questions.length} questões!`,
-    url: `${BASE_URL}?score=${score}`,
-  };
+  const questions = quiz.questions;
+  const dailyTheme = quiz.theme;
 
   const handleAnswerClick = (index: number) => {
     if (index === questions[currentQuestion].correctAnswer) {
@@ -28,13 +28,12 @@ export default function Component() {
     setCurrentQuestion(currentQuestion + 1);
   };
 
-  const handleShareResults = () => {
-    navigator.share(shareObj);
-  };
-
   return (
     <>
-      <Title>{`Quiz do Dia - Tema ${dailyTheme}`}</Title>
+      <div className="mb-6">
+        <Title>{title}</Title>
+        <h2 className="text-lg">Tema: {dailyTheme}</h2>
+      </div>
       <TemplateQuestion
         currentQuestion={currentQuestion}
         question={questions[currentQuestion]}
@@ -45,10 +44,12 @@ export default function Component() {
         <EndQuiz score={score} questions={questions.length} />
       )}
       <div>
-        <meta property="og:title" content="Adivinhe Me - Quiz do Dia" />
+        <meta property="og:title" content={`Adivinhe Me - Quiz do Dia ${quiz.date}`} />
         <meta property="og:url" content={`${BASE_URL}`} />
         <meta property="og:image" content="/favicon.ico" />
       </div>
     </>
   );
 }
+
+export default TemplateQuiz

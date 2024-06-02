@@ -8,7 +8,7 @@ interface CardQuizProps {
 const CardQuiz = ({ quiz }: CardQuizProps) => {
   return (
     <Link
-      href={`/dia/${quiz.date}`}
+      href={`/data/${quiz.date}`}
       className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105"
       prefetch={false}
     >

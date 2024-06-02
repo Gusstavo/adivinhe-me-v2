@@ -27,7 +27,7 @@ const EndQuiz = ({ score, questions }: EndQuizProps) => {
       </h3>
       <div className="flex flex-col sm:flex-row justify-center gap-4">
         <Link
-          href="#"
+          href="/data"
           className="bg-warning text-white rounded-lg py-3 px-6 hover:bg-warning-foreground focus:outline-none text-sm"
           prefetch={false}
         >

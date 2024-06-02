@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const options = [
     { label: "Quiz do dia", href: "/" },
-    { label: "Dias anteriores", href: "/dia" },
+    { label: "Dias anteriores", href: "/data" },
     { label: "Temas", href: "/tema" },
   ];
 
