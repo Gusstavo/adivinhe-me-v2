@@ -5,14 +5,16 @@ import Page from "@/components/self/page";
 
 export default function Component() {
   const quiz: Quiz = {
-    date: "2024-05-01",
+    date: "2024-06-02", // Colocar o dia atual
     theme: "Geografia",
     questions: mockQuestions,
   };
 
+  const title = `Quiz do Dia`
+
   return (
     <Page>
-      <TemplateQuiz title="Quiz do Dia" quiz={quiz} />
+      <TemplateQuiz title={title} quiz={quiz} />
     </Page>
   );
 }
